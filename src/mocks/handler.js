@@ -1,11 +1,11 @@
 import { rest } from 'msw'
 
 export const handlers = [
-    rest.get('http://localhost:3000/api/user/123', async(req, res, ctx) => {
-
+    rest.get('http://localhost:3000/api/user/:userId', async(req, res, ctx) => {
+        const { userId } = req.params;
         return res(
             ctx.json({
-                name: "elther",
+                name: `elther (${userId})`,
             })
         )
     }),
