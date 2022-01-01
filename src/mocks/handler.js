@@ -1,6 +1,44 @@
 import { rest } from 'msw'
 
 export const handlers = [
+    rest.get('http://localhost:3000/api/users', async(req, res, ctx) => {
+        const pageIndex = req.url.searchParams.get('page');
+        return res(
+            ctx.json([
+                { 
+                    id: `1 ${pageIndex}`,
+                    name: `elther 1-${pageIndex}`,
+                },
+                { 
+                    id: `2 ${pageIndex}`,
+                    name: `elther 2-${pageIndex}`,
+                },
+                { 
+                    id: `3 ${pageIndex}`,
+                    name: `elther 3-${pageIndex}`,
+                },
+                { 
+                    id: `4 ${pageIndex}`,
+                    name: `elther 4-${pageIndex}`,
+                },
+                { 
+                    id: `5 ${pageIndex}`,
+                    name: `elther 5-${pageIndex}`,
+                },
+                { 
+                    id: `6 ${pageIndex}`,
+                    name: `elther 6-${pageIndex}`,
+                },
+                { 
+                    id: `7 ${pageIndex}`,
+                    name: `elther 7-${pageIndex}`,
+                },
+            ])
+        )
+        // return res(
+        //     ctx.status(400)
+        // );
+    }),
     rest.get('http://localhost:3000/api/user/:userId', async(req, res, ctx) => {
         const { userId } = req.params;
         return res(
@@ -8,6 +46,9 @@ export const handlers = [
                 name: `elther (${userId})`,
             })
         )
+        // return res(
+        //     ctx.status(400)
+        // );
     }),
     rest.get('http://localhost:3000/api/user-name', async(req, res, ctx) => {
         const id = req.url.searchParams.get("id");
