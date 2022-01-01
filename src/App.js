@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools'
 import Example from './components/ReactQueryExample/Example';
+import Pagination from './components/ReactQueryExample/Pagination';
 import QuickStart from './components/ReactQueryExample/QuickStart';
 // import Cache from './components/SWRExample/Cache';
 // import Fetcher from './components/SWRExample/Fetcher';
@@ -22,6 +23,7 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <Example />
         <QuickStart />
+        <Pagination />
         <ReactQueryDevtools />
       </QueryClientProvider>
     </div>
