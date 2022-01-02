@@ -66,6 +66,7 @@ export const handlers = [
                 },
             ],
             hasMore: pageIndex < 4,
+            nextCursor: pageIndex < 4 ? parseInt(pageIndex) + 1 : undefined,
         })
         );
         // return res(
